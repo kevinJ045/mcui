@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "rayous": "^2.8.2"
+    "@types/three": "^0.160.0",
+    "rayous": "^2.8.2",
+    "three": "^0.160.0"
   }
 }
