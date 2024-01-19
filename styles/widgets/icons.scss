@@ -1,0 +1,29 @@
+.icon {
+	--size: 64px;
+	width: var(--size);
+	height: var(--size);
+
+	background: var(--icon-url);
+	background-size: cover;
+	display: inline-block;
+
+	&.md-1{
+		--size: 48px;
+	}
+
+	&.md{
+		--size: 32px;
+	}
+
+	&.md-2{
+		--size: 24px;
+	}
+
+	&.lg{
+		--size: 128px;
+	}
+
+	&.sm{
+		--size: 16px;
+	}
+}

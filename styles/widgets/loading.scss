@@ -1,0 +1,53 @@
+
+
+.loading-loader{
+	@include minecraftyThing();
+	position: fixed;
+	width: 150px;
+	height: 150px;
+	padding: 0;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&::before{
+		content: "";
+		display: block;
+		width: 32px;
+		height: 32px;
+		animation: 2.5s infinite alternate steps(5) animate-sprite;
+		background-size: 100%;
+
+		@keyframes animate-sprite {
+			0%{
+				background-image: url('/loadings/gas-1.png');
+			}
+			25%{
+				background-image: url('/loadings/gas-2.png');
+			}
+			50%{
+				background-image: url('/loadings/gas-3.png');
+			}
+			75%{
+				background-image: url('/loadings/gas-4.png');
+			}
+			100%{
+				background-image: url('/loadings/gas-5.png');
+			}
+		}
+	}
+
+	&::after{
+		content: "Loading";
+		position: absolute;
+		bottom: 5px;
+		color: white;
+	}
+}
+
+.page:has(.loading-loader){
+	*:not(.bg-image):not(.loading-loader){
+		display: none;
+	}
+}

@@ -1,0 +1,44 @@
+
+@mixin gappedFlex($gap){
+	display: flex;
+	gap: $gap;
+}
+
+.home-page{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.minecraft-logo{
+		position: absolute;
+		background: url('/minecraft.png');
+		width: 300px;
+		height: 50.5px;
+		display: block;
+		z-index: 1;
+		background-size: cover;
+		top: 10%;
+	}
+
+	.all-buttons{
+		@include gappedFlex(5px);
+		flex-direction: column;
+
+		.main-buttons{
+			@include gappedFlex(5px);
+	
+			.pair-buttons{
+				@include gappedFlex(5px);
+			}
+	
+			.tiny-buttons{
+				@include gappedFlex(5px);
+				flex-direction: column;
+			}
+	
+		}
+	}
+
+	
+}

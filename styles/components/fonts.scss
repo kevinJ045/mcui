@@ -1,0 +1,17 @@
+@font-face {
+	font-family: Minecraft;
+	src: url('/fonts/minecraft.woff2');
+}
+
+@font-face {
+	font-family: MinecraftTen;
+	src: url('/fonts/mcten.ttf');
+}
+
+body{
+	font-family: Minecraft, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, button, .font-ten {
+	font-family: MinecraftTen;
+}

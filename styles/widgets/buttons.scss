@@ -1,0 +1,118 @@
+
+@mixin minecraftyThing(){
+	background: var(--button-color);
+	color: var(--button-fg);
+	border-radius: var(--button-radius);
+	border: 4px solid var(--button-color-dark);
+	border-top-color: var(--button-color-light);
+	border-left: var(--border-side);
+	border-right: var(--border-side);
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+
+
+	&.dark{
+		--button-color: #161d16a0;
+		--button-color-dark: #181f18a0;
+		--button-color-darker: #0f140fa0;
+		--button-color-light: #213021a0;
+		box-shadow: none;
+	}
+}
+
+.button{
+	position: relative;
+	--button-color: #337121;
+	--button-fg: #ffffff;
+	--button-color-dark: #2a641c;
+	--button-color-darker: #1a470f;
+	--button-color-light: #52a535;
+	--button-radius: 0;
+	--border-side: 0;
+	padding: 10px 20px;
+	cursor: pointer;
+	@include minecraftyThing();
+	
+	&:focus, &{
+		outline: 0;
+	}
+
+	.icon{
+		transition: .2s;
+	}
+
+	&:active{
+		background: var(--button-color-darker);
+
+		.icon{
+			scale: 0.9;
+		}
+	}
+
+	&.round{
+		--button-radius: 2px;
+	}
+
+	&.sides{
+		--border-side: 4px;
+	}
+
+	&.icon-button{
+		padding: 5px 10px;
+	}
+
+	&.full{
+		width: 100%;
+	}
+
+	.icon.prefix{
+		position: absolute;
+		left: 15px;
+	}
+
+	.bottom-text{
+		position: absolute;
+		bottom: 5px;
+		width: 100%;
+		text-align: center;
+		left: 0;
+	}
+
+	.text-large{
+		font-size: 18px;
+	}
+	
+	.animated-text{
+		animation: .5s 1 transform-upside;
+		color: transparent;
+		// text-shadow: 0px 0px rgba(0, 0, 0, 0.4);
+		background: linear-gradient(45deg, #111111dd, #111111dd, transparent, transparent);
+		background-size: 200%;
+		background-position: 0%;
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+		background-clip: text;
+	}
+
+	.animated-on-hover{
+		display: none;
+	}
+
+	&:hover{
+		.animated-on-hover{
+			display: unset;
+		}
+	}
+
+	@keyframes transform-upside {
+		from{
+			// text-shadow: none;
+			// translate: 0 10px;
+			background-position: 100%;
+		}
+		to{
+			background-position: 0%;
+			// translate: 0;
+			// text-shadow: 0px 0px rgba(0, 0, 0, 0.4);
+		}
+	}
+}
