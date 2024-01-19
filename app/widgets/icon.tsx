@@ -23,3 +23,11 @@ export class XMIcon extends Widget<XMIconOptions> {
 		}
 	}
 }
+
+export class XMIconMini extends XMIcon{
+	constructor(options: XMIconOptions){
+		super(mergeOptions({
+			class: 'icon sm'
+		}, options))
+	}
+}

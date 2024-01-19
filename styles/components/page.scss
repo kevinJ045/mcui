@@ -1,0 +1,39 @@
+@mixin woolTextued(){
+	--page-image-url: url('/bg-wool-dark.png');
+	--fit-x: cover;
+	--fit-y: cover;
+	background: var(--page-image-url);
+	background-size: var(--fit-x) var(--fit-y);
+
+	&.bg-centered{
+		--fit-x: 80%;
+		--fit-y: 100%;
+		background-repeat: no-repeat;
+		background-position: 50%;
+	}
+
+	&.fade-out{
+		--page-image-url: url('/bg-wool-fadeout-dark.png');
+		background-size: cover;
+	}
+}
+
+.page{
+	--page-width: 100dvw;
+	--page-height: 100dvh;
+	--active-display: block;
+	display: none;
+	@include woolTextued();
+
+	width: var(--page-width);
+	height: var(--page-height);
+
+
+	&.active{
+		display: var(--active-display);
+	}
+
+	&.transparent{
+		background: transparent;
+	}
+}

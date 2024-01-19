@@ -7,14 +7,15 @@ import { SkinViewer } from "@/skinview3d/viewer";
 import { IdleAnimation } from "@/skinview3d/animation";
 import { Vector3 } from "three";
 import { WidgetEvent } from "rayous/extra";
+import { Page, PageOptions, page } from "../widgets/page";
 
-
-export class Homepage extends Widget {
+@page({
+	pageId: "homepage",
+	pageClass: "home-page"
+})
+export class Homepage extends Page {
 	
-	constructor(){
-		super({
-			class: 'page home-page'
-		});
+	build(options: PageOptions){
 
 		this.add(
 			<Container class="minecraft-logo"></Container>
@@ -24,7 +25,7 @@ export class Homepage extends Widget {
 			<Container class="all-buttons">
 				<Container class="main-buttons">
 					<Container class="pair-buttons">
-						<XMButton class="dark">
+						<XMButton class="dark" onClick={() => options.component.activatePage('worldspage')}>
 							<XMIcon icon="/icons2/world.png"></XMIcon>
 							<Text class="bottom-text animated-on-hover animated-text text-large">Play</Text>
 						</XMButton>

@@ -1,0 +1,110 @@
+
+
+
+.worlds-page{
+	--active-display: flex;
+
+	.sidebar{
+		position: relative;
+		width: 260px;
+		background: #161d16a0;
+		height: 100vh;
+
+		.navbar{
+			height: 50px;
+			display: flex;
+			padding: 10px;
+			gap: 20px;
+
+			.title{
+				display: flex;
+				gap: 5px;
+				color: white;
+				font-family: MinecraftTen;
+				line-height: 35px;
+			}
+		}
+
+		.tabs, .buttons{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.tabs{
+			padding: 20px;
+			gap: 20px;
+		}
+
+		.buttons{
+			gap: 5px;
+			justify-content: center;
+			align-items: center;
+			.full{
+				width: 160px;
+			}
+			.mini{
+				width: 50px;
+			}
+
+			.mini-buttons{
+				display: flex;
+				gap: 5px;
+			}
+
+			position: absolute;
+			bottom: 10px;
+		}
+	}
+
+	.mainbar{
+		width: calc(100% - 296px);
+		@include woolTextued();
+
+		.worlds-list{
+			width: 100%;
+			padding: 10px;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+
+			.world{
+				position: relative;
+				background: #161d16a0;
+				color: white;
+				cursor: pointer;
+				overflow: hidden;
+
+				img{
+					width: 100%;
+					transition: .4s;
+				}
+
+				.name{
+					position: absolute;
+					bottom: 5px;
+					left: 5px;
+				}
+
+				.info{
+					position: absolute;
+					bottom: 5px;
+					right: 5px;
+				}
+
+				.edit{
+					position: absolute;
+					top: 5px;
+					right: 5px;
+				}
+
+				&:hover{
+					img{
+						scale: 1.2;
+					}
+				}
+			}
+		}
+	}
+
+}

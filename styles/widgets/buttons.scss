@@ -21,17 +21,21 @@
 
 .button{
 	position: relative;
-	--button-color: #337121;
-	--button-fg: #ffffff;
-	--button-color-dark: #2a641c;
-	--button-color-darker: #1a470f;
-	--button-color-light: #52a535;
 	--button-radius: 0;
 	--border-side: 0;
 	padding: 10px 20px;
 	cursor: pointer;
 	@include minecraftyThing();
 	
+
+	&, &.dark.hover:hover{
+		--button-color: #337121;
+		--button-fg: #ffffff;
+		--button-color-dark: #2a641c;
+		--button-color-darker: #1a470f;
+		--button-color-light: #52a535;
+	}
+
 	&:focus, &{
 		outline: 0;
 	}
@@ -52,6 +56,16 @@
 		--button-radius: 2px;
 	}
 
+	&.no-border{
+		border: 0;
+	}
+
+	&.mini{
+		padding: 10px;
+		text-align: center;
+		height: 40px;
+	}
+
 	&.sides{
 		--border-side: 4px;
 	}
@@ -67,6 +81,22 @@
 	.icon.prefix{
 		position: absolute;
 		left: 15px;
+	}
+
+	&.margin-left{
+		padding-left: 40px;
+	}
+
+	&.flat{
+		padding: 5px 10px;
+		.icon.prefix{
+			margin-top: -3px;
+			left: 5px;
+		}
+
+		&.margin-left{
+			padding-left: 25px;
+		}
 	}
 
 	.bottom-text{

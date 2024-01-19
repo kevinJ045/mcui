@@ -10,3 +10,12 @@ export class XMButton extends Button {
 		}, options));
 	}
 }
+
+
+export class XMButtonMini extends XMButton {
+	constructor(options: ButtonOptions){
+		super(mergeOptions({
+			class: 'mini no-border'
+		}, options));
+	}
+}
