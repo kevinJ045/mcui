@@ -41,13 +41,19 @@ export class Homepage extends Widget {
 						</XMButton>
 					</Container>
 				</Container>
-				<XMButton class="dark full">
+				<XMButton onClick={() => this.showLoading()} class="dark full">
 					<XMIcon icon="/icons2/xp.png" class="prefix sm"></XMIcon>
 					<Text>Hello</Text>
 				</XMButton>
 			</Container>
 		);
 
+	}
+
+	showLoading(){
+		let loader = new Container({class: 'loading-loader dark'});
+		this.add(loader);
+		setTimeout(() => loader.remove(), 10000);
 	}
 
 }
