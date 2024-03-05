@@ -22,7 +22,8 @@
 	--page-width: 100dvw;
 	--page-height: 100dvh;
 	--active-display: block;
-	display: none;
+	--inactive-display: none;
+	display: var(--inactive-display);
 	@include woolTextued();
 
 	width: var(--page-width);

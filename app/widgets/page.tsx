@@ -1,5 +1,5 @@
 import { Widget } from "rayous";
-import { mergeOptions, options } from "rayous/extra";
+import { mergeOptions, options, ref } from "rayous/extra";
 import MainComponent from "../page";
 
 
@@ -26,8 +26,12 @@ export function page({
 }
 
 export class Page extends Widget<PageOptions> {
+	_data = {};
 	pageId = "";
 	pageClass = "";
+	@ref page_data: Record<string, any> | null = null;
+	options: PageOptions;
+	updated = false;
 	
 	constructor(options: PageOptions){
 		super(mergeOptions({
@@ -35,9 +39,18 @@ export class Page extends Widget<PageOptions> {
 			component: {} as any
 		}, options));
 
+		this.options = options;
 		this.build(options);
 	}
 
 	build(options: PageOptions){}
+	onNav(){}
+	afterNav(){}
+
+	update(){
+		if(!this.updated) return this.updated = true; 
+		this.findAll('*').forEach(e => e.remove());
+		this.build(this.options);
+	}
 
 }

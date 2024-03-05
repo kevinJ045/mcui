@@ -1,14 +1,22 @@
 
-
+:root{
+	overflow: hidden;
+}
 
 .worlds-page{
 	--active-display: flex;
+	--inactive-display: flex;
+	position: absolute;
+	top: 0;
+	z-index: -1;
 
 	.sidebar{
 		position: relative;
 		width: 260px;
 		background: #161d16a0;
 		height: 100vh;
+		transition: .5s;
+		transform: translate(-100%, 0);
 
 		.navbar{
 			height: 50px;
@@ -55,6 +63,15 @@
 			position: absolute;
 			bottom: 10px;
 		}
+	}
+
+	&.active {
+		z-index: 1;
+	}
+	
+	.pluginbar, .mainbar{
+		transform: translate(110%, 0);
+		transition: .5s;
 	}
 
 	.mainbar{
@@ -105,6 +122,10 @@
 				}
 			}
 		}
+	}
+
+	&.active .mainbar, &.active .sidebar, &.active .pluginbar{
+		transform: translate(0, 0);
 	}
 
 }

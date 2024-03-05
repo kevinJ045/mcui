@@ -1,0 +1,24 @@
+
+.loading-page{
+	--inactive-display: flex;
+	--active-display: flex;
+	
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+
+	transform: translate(-50%, -50%) scale(var(--size));
+	--size: 5;
+	transition: .2s;
+	opacity: 0;
+
+	&.active{
+		opacity: 1;
+		z-index: 1;
+		--size: 1;
+	}
+
+	&:not(.active)::before{
+		animation: none;
+	}
+}

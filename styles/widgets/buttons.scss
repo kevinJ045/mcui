@@ -146,3 +146,8 @@
 		}
 	}
 }
+
+.button-group-two{
+	display: flex;
+	width: clamp(200px, 250px, 70%);
+}

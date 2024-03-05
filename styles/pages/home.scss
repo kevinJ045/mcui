@@ -10,6 +10,7 @@
 	align-items: center;
 	background: transparent !important;
 	--active-display: flex;
+	--inactive-display: flex;
 
 	.minecraft-logo{
 		position: absolute;
@@ -20,6 +21,20 @@
 		z-index: 1;
 		background-size: cover;
 		top: 10%;
+		transform: scaleY(1);
+		transition: .25s;
+	}
+	
+	&:not(.active){
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	&:not(.active) .minecraft-logo{
+		transform: scaleY(0);
 	}
 
 	.all-buttons{
@@ -41,6 +56,26 @@
 		}
 	}
 
+	.all-buttons .button {
+		transform: translate(0, 0) scaleY(1);
+		transition: .25s;
+	}
+
+
+	&:not(.active) .all-buttons .button{
+		transform: translate(0%, 0) scale(4);
+		opacity: 0;
+	}
+
+	&:not(.active) .all-buttons .main-buttons .button:nth-child(1){
+		transform: translate(-110%, 0) scale(4);
+	}
+
+	&:not(.active) .all-buttons .main-buttons .button:nth-child(2){
+		transform: translate(110%, 0) scale(4);
+	}
+
+
 	.skin-viewer{
 		position: absolute;
 		z-index: 1;
@@ -48,4 +83,8 @@
 		bottom: 1%;
 	}
 	
+	&:not(.active) .skin-viewer{
+		display: none;
+	}
+
 }

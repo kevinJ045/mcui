@@ -5,6 +5,7 @@ import { Pluginbar } from "../widgets/pluginbar";
 import { XMButton, XMButtonMini } from "../widgets/button";
 import { XMIcon, XMIconMini } from "../widgets/icon";
 import { AllWorlds } from "../const/worlds";
+import { loadingGeneration } from "../widgets/loadergen";
 
 @page({
 	pageId: "worldspage",
@@ -13,7 +14,9 @@ import { AllWorlds } from "../const/worlds";
 export class Worldspage extends Page {
 	build(options: PageOptions){
 
-		this.addAll(
+		const page = this;
+
+		page.addAll(
 			<Container class="sidebar">
 				<Container class="navbar">
 					<XMButton class="dark flat no-border margin-left" onClick={() => options.component.activatePage('homepage')}>
@@ -41,7 +44,7 @@ export class Worldspage extends Page {
 				</Container>
 
 				<Container class="buttons">
-					<XMButton class="full">
+					<XMButton class="full" onClick={() => options.component.activatePage('createpage')}>
 						<XMIconMini class="prefix" icon="/icons/layers.png"></XMIconMini>
 						<Text>New World</Text>
 					</XMButton>
@@ -65,8 +68,8 @@ export class Worldspage extends Page {
 								children: [
 									<Image src={item.picture}></Image>,
 									<Text class="name">{item.name}</Text>,
-									<XMButtonMini class="dark edit hover"><XMIconMini icon="/icons/color.png"></XMIconMini></XMButtonMini>,
-									<XMButtonMini class="dark info hover"><XMIconMini icon="/icons/expand.png"></XMIconMini></XMButtonMini>
+									<XMButtonMini class="dark edit hover" onClick={() => options.component.activatePage('createpage', {name: item.name})}><XMIconMini icon="/icons/color.png"></XMIconMini></XMButtonMini>,
+									<XMButtonMini class="dark info hover" onClick={() => loadingGeneration(options)}><XMIconMini icon="/icons/expand.png"></XMIconMini></XMButtonMini>
 								]
 							});
 						}

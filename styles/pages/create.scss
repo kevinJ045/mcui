@@ -1,0 +1,34 @@
+
+
+.create-page{
+	// position: absolute;
+	// width: 100%;
+	// height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+
+	--active-display: flex;
+	--inactive-display: flex;
+
+	transform: translate(0, -400%) scale(0.25);
+	transition: .5s;
+
+	&.active{
+		transform: translate(0, 0) scale(1);
+	}
+
+	.create-world{
+		position: absolute;
+		bottom: 25px;
+		right: 25px;
+		width: 125px;
+	}
+
+	.back-button{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+	}
+}

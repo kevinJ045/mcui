@@ -8,6 +8,7 @@ import { IdleAnimation } from "@/skinview3d/animation";
 import { Vector3 } from "three";
 import { WidgetEvent } from "rayous/extra";
 import { Page, PageOptions, page } from "../widgets/page";
+import { loadingGeneration } from "../widgets/loadergen";
 
 @page({
 	pageId: "homepage",
@@ -46,9 +47,9 @@ export class Homepage extends Page {
 						</XMButton>
 					</Container>
 				</Container>
-				<XMButton onClick={() => this.showLoading()} class="dark full">
+				<XMButton onClick={() => this.showLoading(options)} class="dark full">
 					<XMIcon icon="/icons2/xp.png" class="prefix sm"></XMIcon>
-					<Text>Hello</Text>
+					<Text>Info</Text>
 				</XMButton>
 			</Container>
 		);
@@ -103,10 +104,8 @@ export class Homepage extends Page {
 
 	}
 
-	showLoading(){
-		let loader = new Container({class: 'loading-loader dark'});
-		this.add(loader);
-		setTimeout(() => loader.remove(), 10000);
+	showLoading(options: any){
+		loadingGeneration(options, null, 'Loading...');
 	}
 
 }

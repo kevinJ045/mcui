@@ -39,7 +39,7 @@
 	}
 
 	&::after{
-		content: "Loading";
+		content: attr(loading);
 		position: absolute;
 		bottom: 5px;
 		color: white;
@@ -47,7 +47,8 @@
 }
 
 .page:has(.loading-loader){
-	*:not(.bg-image):not(.loading-loader){
-		display: none;
+	background: transparent;
+	*:not(.bg-image):not(.loading-loader):not(.loading-container){
+		display: none !important;
 	}
 }
